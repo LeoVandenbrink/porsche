@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="porsche-logo-808.png">
+</head>
+<body>
+
+    <div class="nov">
+        <h1>porsche</h1>
+        <nav>
+            <a href="#home">models</a>
+            <a href="#about">about us</a>
+            <a href="#price">price</a>
+            <a href="#reviews">reviews</a>
+        </nav>
+    </div>
+
+    <section class="slider" id="home">
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+        <div class="slider-track">
+            <model-viewer class="slide active"
+                src="3d/2014_porsche_911_turbo_991.glb"
+                alt="Porsche 911 Turbo 991"
+                camera-orbit="90deg 90deg 105%"
+                shadow-intensity="0"
+                disable-zoom
+                interaction-prompt="none"></model-viewer>
+
+            <model-viewer class="slide"
+                src="3d/porsche_911_930_turbo_1975/scene.gltf"
+                alt="Porsche 911 930 Turbo 1975"
+                camera-orbit="90deg 90deg 105%"
+                shadow-intensity="0"
+                disable-zoom
+                interaction-prompt="none"></model-viewer>
+
+            <model-viewer class="slide"
+                src="3d/1982_porsche_930_911_turbo_3.3/scene.gltf"
+                alt="Porsche 930 1982"
+                camera-orbit="90deg 90deg 105%"
+                shadow-intensity="0"
+                disable-zoom
+                interaction-prompt="none"></model-viewer>
+        </div>
+
+        <div class="slider-caption">
+            <span class="model-index">01 / 03</span>
+            <h2 class="model-name">911 Turbo 991</h2>
+        </div>
+
+        <button class="slider-btn prev-btn" onclick="changeSlide(-1)">‹</button>
+        <button class="slider-btn next-btn" onclick="changeSlide(1)">›</button>
+
+        <div class="scroll-hint">
+            <span>scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-inner">
+            <div class="about-text">
+                <span class="eyebrow">legend</span>
+                <h2>Engineering<br>no compromises</h2>
+                <p>
+                    The Porsche 911 Turbo is the benchmark for sports cars, with a history spanning more than
+                    fifty years. Each generation retains the model’s recognizable
+                    silhouette and the brand’s philosophy: maximum performance with
+                    absolute control over the car.
+                </p>
+                <p>
+                    From the air-cooled 930 series to today’s
+                    all-wheel-drive versions—the Turbo has always set the standard
+                    that competitors have strived to match.
+                </p>
+                <a href="#home" class="about-link">View Models →</a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
+                    </svg>
+                    <span class="stat-value">580</span>
+                    <span class="stat-unit">hp.</span>
+                    <span class="stat-label">power</span>
+                </div>
+
+                <div class="stat-card">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M12 7v5l3 3"/>
+                    </svg>
+                    <span class="stat-value">2.7</span>
+                    <span class="stat-unit">sec</span>
+                    <span class="stat-label">0–100 km/h</span>
+                </div>
+
+                <div class="stat-card">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 12h14m0 0-5-5m5 5-5 5"/>
+                    </svg>
+                    <span class="stat-value">330</span>
+                    <span class="stat-unit">km/h</span>
+                    <span class="stat-label">Max. speed</span>
+                </div>
+
+                <div class="stat-card">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                        <path d="M4 10h16"/>
+                    </svg>
+                    <span class="stat-value">3</span>
+                    <span class="stat-unit">поколения</span>
+                    <span class="stat-label">В галерее</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="price" id="price">
+        <div class="price-inner">
+            <span class="eyebrow">Configuration</span>
+            <h2>Choose Your<br>Turbo</h2>
+
+            <div class="price-grid">
+                <div class="price-card">
+                    <span class="price-year">2014</span>
+                    <h3 class="price-model">911 Turbo 991</h3>
+                    <div class="price-tag">
+                        <span class="price-from">from</span>
+                        <span class="price-amount">$152,900</span>
+                    </div>
+                    <ul class="price-specs">
+                        <li>580 hp</li>
+                        <li>3.8L twin-turbo flat-six</li>
+                        <li>PDK dual-clutch</li>
+                    </ul>
+                    <a href="#" class="about-link">Configure →</a>
+                </div>
+
+                <div class="price-card">
+                    <span class="price-year">1975</span>
+                    <h3 class="price-model">911 930 Turbo</h3>
+                    <div class="price-tag">
+                        <span class="price-from">from</span>
+                        <span class="price-amount">$310,000</span>
+                    </div>
+                    <ul class="price-specs">
+                        <li>260 hp</li>
+                        <li>3.0L turbocharged flat-six</li>
+                        <li>4-speed manual</li>
+                    </ul>
+                    <a href="#" class="about-link">Configure →</a>
+                </div>
+
+                <div class="price-card">
+                    <span class="price-year">1982</span>
+                    <h3 class="price-model">930 Turbo 3.3</h3>
+                    <div class="price-tag">
+                        <span class="price-from">from</span>
+                        <span class="price-amount">$340,000</span>
+                    </div>
+                    <ul class="price-specs">
+                        <li>300 hp</li>
+                        <li>3.3L turbocharged flat-six</li>
+                        <li>4-speed manual</li>
+                    </ul>
+                    <a href="#" class="about-link">Configure →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="reviews-inner">
+            <span class="eyebrow">Press &amp; Owners</span>
+            <h2>Driven. Tested.<br>Trusted.</h2>
+
+            <div class="reviews-grid">
+                <blockquote class="review-card">
+                    <p class="review-quote">“The 991 Turbo doesn't just accelerate — it rearranges your understanding of what a road car can do.”</p>
+                    <footer class="review-author">
+                        <span class="review-name">Car and Driver</span>
+                        <span class="review-role">Road Test</span>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="review-card">
+                    <p class="review-quote">“Forty years on, the 930's turbo lag is still the most honest thrill in sports cars.”</p>
+                    <footer class="review-author">
+                        <span class="review-name">M. Reinhardt</span>
+                        <span class="review-role">Owner, 1975 930</span>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="review-card">
+                    <p class="review-quote">“Few machines reward commitment like the 3.3. It punishes hesitation and rewards precision.”</p>
+                    <footer class="review-author">
+                        <span class="review-name">Road &amp; Track</span>
+                        <span class="review-role">Legends Series</span>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h2>porsche</h2>
+                <p>Three generations of Turbo, one obsession with control.</p>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-heading">Models</span>
+                <a href="#home">911 Turbo 991</a>
+                <a href="#home">911 930 Turbo</a>
+                <a href="#home">930 Turbo 3.3</a>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-heading">Company</span>
+                <a href="#about">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-heading">Support</span>
+                <a href="#">Contact</a>
+                <a href="#">Find a Dealer</a>
+                <a href="#">Warranty</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Porsche Turbo Archive. All rights reserved.</span>
+            <div class="footer-legal">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,824 @@
+@import url('https://fonts.cdnfonts.com/css/911-porscha');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Geomini:wght@200..800&family=Stack+Sans+Text:wght@200..700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Stack Sans Text", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    background-color: #0f0f0f;
+    color: #f8f8f8;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ---------- header ---------- */
+
+.nov {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    z-index: 30;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    background: linear-gradient(to bottom, rgba(15,15,15,0.7), transparent);
+}
+
+h1 {
+    font-family: '911 Porscha', sans-serif;
+    order: -1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+nav a {
+    position: relative;
+    transition: opacity 0.3s ease;
+    opacity: 0.75;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+/* ---------- hero / slider ---------- */
+
+.slider {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+.slider-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* this layer is transformed by script.js while scrolling
+       toward the .about section (translate / scale / fade) */
+    transform-origin: 50% 60%;
+    will-change: transform, opacity;
+}
+
+model-viewer {
+    width: 181vh;
+    height: 100vh;
+    height: 100dvh;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    --poster-color: transparent;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+.slide.active {
+    transform: translateX(0);
+    pointer-events: auto;
+    z-index: 5;
+}
+
+.slide.next {
+    transform: translateX(100%);
+    z-index: 4;
+}
+
+.slide.prev {
+    transform: translateX(-100%);
+    z-index: 4;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background: none;
+    border: 2px solid #f8f8f8;
+    border-radius: 20px;
+    width: 55px;
+    font-size: 3rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #f8f8f8;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color: rgba(248, 248, 248, 0.08);
+}
+
+.slider-btn.prev-btn { left: 50px; }
+.slider-btn.next-btn { right: 50px; }
+
+.slider-caption {
+    position: absolute;
+    left: 50px;
+    bottom: 100px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.model-index {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    text-transform: uppercase;
+}
+
+.model-name {
+    font-family: '911 Porscha', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.scroll-hint {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: #f8f8f8;
+    overflow: hidden;
+    position: relative;
+}
+
+.scroll-line::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f8f8f8;
+    animation: scrollDown 1.8s infinite ease-in-out;
+}
+
+@keyframes scrollDown {
+    0%   { top: -100%; }
+    50%  { top: 100%; }
+    100% { top: 100%; }
+}
+
+/* ---------- about section ---------- */
+
+.about {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 50px;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(248,248,248,0.06), transparent 60%),
+        #0f0f0f;
+}
+
+.about-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-bottom: 16px;
+}
+
+.about-text h2 {
+    font-family: '911 Porscha', sans-serif;
+    text-transform: uppercase;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    opacity: 0.75;
+    max-width: 480px;
+    margin-bottom: 18px;
+}
+
+.about-link {
+    display: inline-block;
+    margin-top: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f8f8f8;
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+}
+
+.about-link:hover {
+    opacity: 0.6;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 28px 22px;
+    border: 1px solid rgba(248, 248, 248, 0.15);
+    border-radius: 4px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: rgba(248, 248, 248, 0.5);
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    width: 26px;
+    height: 26px;
+    opacity: 0.8;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-family: '911 Porscha', sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.stat-unit {
+    font-size: 0.8rem;
+    opacity: 0.55;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-label {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- price section ---------- */
+
+.price {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 50px;
+    background: #0f0f0f;
+}
+
+.price-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.price-inner h2 {
+    font-family: '911 Porscha', sans-serif;
+    text-transform: uppercase;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.price-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 36px 28px;
+    border: 1px solid rgba(248, 248, 248, 0.15);
+    border-radius: 4px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.price-card:hover {
+    border-color: rgba(248, 248, 248, 0.5);
+    transform: translateY(-4px);
+}
+
+.price-year {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    text-transform: uppercase;
+}
+
+.price-model {
+    font-family: '911 Porscha', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.price-tag {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 10px 0 4px;
+}
+
+.price-from {
+    font-size: 0.75rem;
+    opacity: 0.55;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-amount {
+    font-family: 'Geomini', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+}
+
+.price-specs {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 6px 0 14px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.price-specs li::before {
+    content: "— ";
+    opacity: 0.5;
+}
+
+/* ---------- reviews section ---------- */
+
+.reviews {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 50px;
+    background:
+        radial-gradient(circle at 15% 80%, rgba(248,248,248,0.05), transparent 55%),
+        #0f0f0f;
+}
+
+.reviews-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.reviews-inner h2 {
+    font-family: '911 Porscha', sans-serif;
+    text-transform: uppercase;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 36px 30px;
+    border: 1px solid rgba(248, 248, 248, 0.15);
+    border-radius: 4px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.review-card:hover {
+    border-color: rgba(248, 248, 248, 0.5);
+    transform: translateY(-4px);
+}
+
+.review-quote {
+    font-family: 'Cormorant', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.review-author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.review-name {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.review-role {
+    font-size: 0.75rem;
+    opacity: 0.55;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+    position: relative;
+    padding: 80px 50px 30px;
+    background: #0a0a0a;
+    border-top: 1px solid rgba(248, 248, 248, 0.1);
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-brand h2 {
+    font-family: '911 Porscha', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    line-height: 1.6;
+    max-width: 260px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-heading {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.5;
+    margin-bottom: 6px;
+}
+
+.footer-col a {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+    width: fit-content;
+}
+
+.footer-col a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(248, 248, 248, 0.1);
+    font-size: 0.8rem;
+    opacity: 0.55;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+/* ---------- responsive ---------- */
+
+/* Large tablets / small laptops */
+@media (max-width: 1100px) {
+    .about-inner {
+        gap: 50px;
+    }
+
+    .price-grid,
+    .reviews-grid {
+        gap: 18px;
+    }
+}
+
+/* Tablets (portrait) */
+@media (max-width: 900px) {
+    .nov {
+        padding: 16px 24px;
+    }
+
+    nav {
+        gap: 14px;
+        font-size: 0.75rem;
+    }
+
+    .slider-caption,
+    .slider-btn {
+        left: 24px;
+    }
+    .slider-btn.next-btn { right: 24px; left: auto; }
+
+    .slider-btn {
+        width: 46px;
+        font-size: 2.2rem;
+        border-radius: 16px;
+    }
+
+    model-viewer {
+        width: 260vh;
+    }
+
+    .slider-caption {
+        bottom: 90px;
+    }
+
+    .model-name {
+        font-size: 1.5rem;
+    }
+
+    .scroll-hint {
+        right: 24px;
+        bottom: 34px;
+    }
+
+    .about,
+    .price,
+    .reviews {
+        padding: 90px 24px;
+        min-height: auto;
+    }
+
+    .about-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-text p {
+        max-width: none;
+    }
+
+    .about-text h2,
+    .price-inner h2,
+    .reviews-inner h2 {
+        font-size: 2.1rem;
+    }
+
+    .price-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+/* Phones (landscape and large) */
+@media (max-width: 640px) {
+    .nov {
+        padding: 14px 18px;
+    }
+
+    h1 {
+        font-size: 1.1rem;
+    }
+
+    nav {
+        gap: 10px;
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+    }
+
+    model-viewer {
+        width: 340vh;
+    }
+
+    .slider-caption,
+    .slider-btn {
+        left: 16px;
+    }
+    .slider-btn.next-btn { right: 16px; left: auto; }
+
+    .slider-btn {
+        width: 40px;
+        font-size: 1.8rem;
+        border-radius: 12px;
+    }
+
+    .slider-caption {
+        bottom: 76px;
+        left: 16px;
+        right: 16px;
+    }
+
+    .model-index {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    .model-name {
+        font-size: 1.2rem;
+    }
+
+    .scroll-hint {
+        right: 16px;
+        bottom: 22px;
+    }
+
+    .about,
+    .price,
+    .reviews {
+        padding: 64px 18px;
+    }
+
+    .eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    .about-text h2,
+    .price-inner h2,
+    .reviews-inner h2 {
+        font-size: 1.6rem;
+        margin-bottom: 28px;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 14px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px 14px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .price-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .price-card,
+    .review-card {
+        padding: 24px 20px;
+    }
+
+    .review-quote {
+        font-size: 1.15rem;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding-bottom: 30px;
+    }
+
+    .site-footer {
+        padding: 56px 18px 24px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+    h1 {
+        font-size: 0.95rem;
+    }
+
+    nav {
+        gap: 8px;
+        font-size: 0.6rem;
+    }
+
+    .about-text h2,
+    .price-inner h2,
+    .reviews-inner h2 {
+        font-size: 1.4rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reduce hover/scale interactions on touch devices (no real hover) */
+@media (hover: none) {
+    .stat-card:hover,
+    .price-card:hover,
+    .review-card:hover {
+        transform: none;
+    }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        scroll-behavior: auto;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
